@@ -22,10 +22,10 @@ RUN apt-get install -y --allow-downgrades --allow-change-held-packages --no-inst
         libnss3-dev \
         software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa -y
-#RUN apt-get install python3-pip -y
+RUN apt-get install python3-pip -y
 RUN apt install python3.7 -y
 RUN ln -s /usr/bin/python3.7 /usr/bin/python
-RUN python -m pip install pip
+RUN python -m pip3 install --upgrade pip
 
 RUN mkdir /notebooks
 WORKDIR /notebooks
