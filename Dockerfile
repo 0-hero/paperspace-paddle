@@ -26,10 +26,10 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN mkdir /notebooks
 WORKDIR /notebooks
 
-RUN pip install -I jinja2 >=3.1.1
-RUN pip install --upgrade nbdev nbconvert jupyter jupyterlab
-RUN pip install --upgrade ipywidgets
-RUN pip install --upgrade jupyter_contrib_nbextensions jupyterlab-git
+RUN pip3 install -I jinja2 >=3.1.1
+RUN pip3 install --upgrade nbdev nbconvert jupyter jupyterlab
+RUN pip3 install --upgrade ipywidgets
+RUN pip3 install --upgrade jupyter_contrib_nbextensions jupyterlab-git
 
 COPY run.sh /run.sh
 CMD ["/run.sh"]
