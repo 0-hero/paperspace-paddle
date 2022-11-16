@@ -20,8 +20,10 @@ RUN apt-get install -y --allow-downgrades --allow-change-held-packages --no-inst
         libx264-dev \
         imagemagick \
         libnss3-dev
+RUN add-apt-repository ppa:deadsnakes/ppa -y
+RUN apt install python3.7
 RUN apt-get install python3-pip -y
-RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN ln -s /usr/bin/python3.7 /usr/bin/python
 
 RUN mkdir /notebooks
 WORKDIR /notebooks
