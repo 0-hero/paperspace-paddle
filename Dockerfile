@@ -25,15 +25,16 @@ RUN add-apt-repository ppa:deadsnakes/ppa -y
 RUN apt-get install python3-pip -y
 RUN apt install python3.7 -y
 RUN ln -s /usr/bin/python3.7 /usr/bin/python
-RUN python -m pip3 install --upgrade pip
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1
+RUN python -m pip install --upgrade pip
 
 RUN mkdir /notebooks
 WORKDIR /notebooks
 
-RUN pip3 install -I jinja2 >=3.1.1 
-RUN pip3 install --upgrade nbdev nbconvert jupyter jupyterlab
-RUN pip3 install --upgrade ipywidgets
-RUN pip3 install --upgrade jupyter_contrib_nbextensions jupyterlab-git
+RUN pip install -I jinja2 >=3.1.1 
+RUN pip install --upgrade nbdev nbconvert jupyter jupyterlab
+RUN pip install --upgrade ipywidgets
+RUN pip install --upgrade jupyter_contrib_nbextensions jupyterlab-git
 
 COPY run.sh /run.sh
 CMD ["/run.sh"]
