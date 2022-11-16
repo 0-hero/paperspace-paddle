@@ -19,7 +19,8 @@ RUN apt-get install -y --allow-downgrades --allow-change-held-packages --no-inst
         ffmpeg \
         libx264-dev \
         imagemagick \
-        libnss3-dev
+        libnss3-dev \
+        software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa -y
 RUN apt install python3.7
 RUN apt-get install python3-pip -y
