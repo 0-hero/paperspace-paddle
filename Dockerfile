@@ -19,7 +19,6 @@ RUN apt-get install -y --allow-downgrades --allow-change-held-packages --no-inst
         imagemagick \
         libnss3-dev \
         software-properties-common
-RUN python -m pip install --upgrade pip
 
 RUN mkdir /notebooks
 WORKDIR /notebooks
