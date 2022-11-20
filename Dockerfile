@@ -1,9 +1,6 @@
 FROM nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
-
-RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/7fa2af80.pub
-RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 RUN apt-get update && apt-get install -y rsync htop git openssh-server
 RUN apt-get install -y --allow-downgrades --allow-change-held-packages --no-install-recommends \
         build-essential \
@@ -22,11 +19,6 @@ RUN apt-get install -y --allow-downgrades --allow-change-held-packages --no-inst
         imagemagick \
         libnss3-dev \
         software-properties-common
-RUN add-apt-repository ppa:deadsnakes/ppa -y
-RUN apt-get install python3-pip -y
-RUN apt install python3.7 -y
-RUN ln -s /usr/bin/python3.7 /usr/bin/python
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1
 RUN python -m pip install --upgrade pip
 
 RUN mkdir /notebooks
